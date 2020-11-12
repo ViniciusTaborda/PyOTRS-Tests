@@ -6,6 +6,8 @@ from pyotrs import Article, Client, DynamicField, Ticket
 title = "title"
 body  = "body"
 
+
+client = Client(URL, USER, PASSWORD)
 client.session_create()
 
 new_ticket = Ticket.create_basic(
@@ -26,8 +28,13 @@ print(type(create_ticket['TicketNumber']))
 ticketnumber = create_ticket['TicketNumber']
 
 
+variable = '"OTRSTICKET"'
+aspas = '"'
+variableValue = aspas + ticketnumber + aspas
+
+print(variable)
 if (ticketnumber == " "):
-    print("set variable \ RETURN \ Ticket nao criado, entre em contato com nosso time de suporte!", ticketnumber)
+   print("set variable \"RETURN\" \"Ticket não criado, entre em contato com nosso time de suporte!\"")
 else:
-    print("set variable \ RETURN \ Seu ticket e:", ticketnumber)
-    print("set variable \ OTRSTICKET" , ticketnumber)
+   print("set variable \"RETURN\" \"Seu ticket é:\"")
+   print("set variable", variable, variableValue)
